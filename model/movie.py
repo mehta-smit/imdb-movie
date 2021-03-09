@@ -10,7 +10,7 @@ class Movie(db.Model):
     __tabelname__ = 'movie'
 
     id = PRIMARY_KEY.copy()
-    name = Column(db.String(255), unique=True)
+    name = Column(db.String(255))
     popularity = Column('99popularity', db.Float)
     director = Column(db.String(255))
     genre = Column(db.String(255))
