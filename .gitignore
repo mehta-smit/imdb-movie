@@ -1,0 +1,6 @@
+#sr_mehta
+*.pyc
+*~
+*__pycache__*
+*.idea/*
+.git/
