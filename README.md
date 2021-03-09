@@ -24,3 +24,6 @@
 > ```./run_with_env.sh env/developer.env exec gunicorn app:flask_app --bind=0.0.0.0:5000 --log-level=INFO```
 
 ### Ready to spare this.!!!
+
+#### Access this Mini-IMDB on below internet address
+http://3.128.136.86:5000
