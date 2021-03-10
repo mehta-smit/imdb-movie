@@ -30,4 +30,9 @@
 
 #### Access the imdb-movie API Documentation using below links
 [Swagger API Documentation Link](http://3.128.136.86:5000/swagger-ui/)
+
 [Swagger API Documentation JSON File](http://3.128.136.86:5000/swagger/)
+
+
+#### Postman Collection Link
+[Postman Collection Public Link](https://www.getpostman.com/collections/5be6fcc70dd0af81dbf1)
