@@ -26,4 +26,8 @@
 ### Ready to spare this.!!!
 
 #### Access this Mini-IMDB on below internet address
-http://3.128.136.86:5000
+[imdb-movie API Server Link](http://3.128.136.86:5000)
+
+#### Access the imdb-movie API Documentation using below links
+[Swagger API Documentation Link](http://3.128.136.86:5000/swagger-ui/)
+[Swagger API Documentation JSON File](http://3.128.136.86:5000/swagger/)
