@@ -1,9 +1,7 @@
 from flask import current_app as app
 
-
-from model import User, session, UserRole
 from constant.common_constant import PASSWORD_ATTEMPT, ACTIVE
-
+from model import User, session, UserRole
 
 
 def list_user(current_user, **kwargs):
@@ -13,12 +11,12 @@ def list_user(current_user, **kwargs):
         input_keys = kwargs.keys()
         query = session.query(User)
         if 'user_name' in input_keys:
-            query.filter(User.user_name.like("%{}%".format(kwargs['user_name'])))
+            query = query.filter(User.user_name.like("%{}%".format(kwargs['user_name'])))
 
         if 'email' in input_keys:
-            query.filter(User.email == kwargs['email'])
+            query = query.filter(User.email == kwargs['email'])
 
-        query.filter(UserRole.id == User.user_role)
+        query = query.filter(UserRole.id == User.user_role)
         query.order_by(User.id.desc())
 
         app.logger.info("List User Query :: {}".format(query))

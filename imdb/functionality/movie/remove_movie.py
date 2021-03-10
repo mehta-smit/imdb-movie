@@ -28,11 +28,12 @@ def remove_movie(current_user, movie_id):
         return dict(
             success=True,
             message="Movie has been successfully deleted.!!!",
-            movie_id=movie_obj.get("id"),
-            movie_name=movie_obj.get("name"),
-            director=movie_obj.get("director"),
-            genre=movie_obj.get("genre"),
-            imdb_score=movie_obj.get("imdb_score")
+            data=dict(
+                movie_id=movie_obj.get("id"),
+                movie_name=movie_obj.get("name"),
+                director=movie_obj.get("director"),
+                genre=movie_obj.get("genre"),
+                imdb_score=movie_obj.get("imdb_score"))
         )
 
     return _prepare_response()

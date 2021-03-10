@@ -3,6 +3,7 @@ import operator
 from flask import current_app as app
 
 from model import Movie, session
+from constant.common_constant import ACTIVE
 
 
 def list_movie(current_user, **kwargs):
@@ -24,8 +25,9 @@ def list_movie(current_user, **kwargs):
             query = query.filter(Movie.genre.like("%{}%".format(kwargs['genre'])))
 
         if 'imdb_score' in kwargs:
-            query = query.filter(operator.ge(Movie.imdb_score, kwargs['imdb_score']))
+            query = query.filter(Movie.imdb_score >= kwargs['imdb_score'])
 
+        query.filter(Movie.is_deleted == ACTIVE)
         return query
 
     def _get_data():
@@ -47,15 +49,17 @@ def list_movie(current_user, **kwargs):
         response = dict(
             success=True,
             message="Success.!!!",
-            total_count=total_count,
-            movies=list(dict(
-                movie_id=movie.id,
-                movie_name=movie.name,
-                director=movie.director,
-                genre=movie.genre,
-                popularity=movie.popularity,
-                imdb_score=movie.imdb_score
-            ) for movie in data)
+            data=dict(
+                total_count=total_count,
+                movies=list(dict(
+                    movie_id=movie.id,
+                    movie_name=movie.name,
+                    director=movie.director,
+                    genre=movie.genre,
+                    popularity=movie.popularity,
+                    imdb_score=movie.imdb_score
+                ) for movie in data)
+            )
         )
         # app.logger.info("List Movie Response :: {}".format(response))
         return response
